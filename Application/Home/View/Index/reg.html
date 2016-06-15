@@ -1,0 +1,106 @@
+<div class="extra-message" style="color:red;margin-top:10px;"></div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_username" />
+		<label class="input__label input__label--yoshiko" for="reg_username">
+			<span class="input__label-content input__label-content--yoshiko" data-content="用户名：英文、数字或下划线，10-20字符">用户名</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_password" />
+		<label class="input__label input__label--yoshiko" for="reg_password">
+			<span class="input__label-content input__label-content--yoshiko" data-content="密码：英文、数字或下划线，10-30字符">密码</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_passwordconfirm" />
+		<label class="input__label input__label--yoshiko" for="reg_passwordconfirm">
+			<span class="input__label-content input__label-content--yoshiko" data-content="确认密码">确认密码</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_realname" value="{$regInfo.realname}" />
+		<label class="input__label input__label--yoshiko" for="reg_realname">
+			<span class="input__label-content input__label-content--yoshiko" data-content="真实姓名">真实姓名</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_mobile" value="{$regInfo.mobile}" />
+		<label class="input__label input__label--yoshiko" for="reg_mobile">
+			<span class="input__label-content input__label-content--yoshiko" data-content="手机号码">手机号码</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_idcardnumber" value="{$regInfo.idcardnumber}" />
+		<label class="input__label input__label--yoshiko" for="reg_idcardnumber">
+			<span class="input__label-content input__label-content--yoshiko" data-content="身份证号码">身份证号码</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_bankcard" value="{$regInfo.bankcard}" />
+		<label class="input__label input__label--yoshiko" for="reg_bankcard">
+			<span class="input__label-content input__label-content--yoshiko" data-content="银行卡号码">银行卡号码</span>
+		</label>
+	</span>
+</div>
+<div style="margin-top:10px;">
+	<span class="classie input--yoshiko">
+		<input class="input__field input__field--yoshiko" type="text" id="reg_bankname" value="{$regInfo.bankname}" />
+		<label class="input__label input__label--yoshiko" for="reg_bankname">
+			<span class="input__label-content input__label-content--yoshiko" data-content="开户行信息">开户行信息</span>
+		</label>
+	</span>
+</div>
+
+<script>
+(function () {
+    if (!String.prototype.trim) {
+        (function () {
+            var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+            String.prototype.trim = function () {
+                return this.replace(rtrim, '');
+            };
+        })();
+    }
+
+    [ ].slice.call(document.querySelectorAll('input.input__field')).forEach(function (inputEl) {
+        if (inputEl.value.trim() !== '') {
+            classie.add(inputEl.parentNode, 'input--filled');
+        }
+
+        inputEl.addEventListener('focus', onInputFocus);
+        inputEl.addEventListener('blur', onInputBlur);
+    });
+
+    function onInputFocus(ev) {
+        classie.add(ev.target.parentNode, 'input--filled');
+    }
+
+    function onInputBlur(ev) {
+        if (ev.target.value.trim() === '') {
+            classie.remove(ev.target.parentNode, 'input--filled');
+        }
+    }
+})();
+
+
+$(document).ready(function(){
+	if($('#reg_realname').val() != ''){$('#reg_realname').prop('disabled',true);}
+	if($('#reg_mobile').val() != ''){$('#reg_mobile').prop('disabled',true);}
+	if($('#reg_idcardnumber').val() != ''){$('#reg_idcardnumber').prop('disabled',true);}
+	if($('#reg_bankcard').val() != ''){$('#reg_bankcard').prop('disabled',true);}
+	if($('#reg_bankname').val() != ''){$('#reg_bankname').prop('disabled',true);}
+});
+</script>

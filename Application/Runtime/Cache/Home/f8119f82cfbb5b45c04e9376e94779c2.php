@@ -1,0 +1,49 @@
+<?php if (!defined('THINK_PATH')) exit();?><div id="errormessage_table">
+	<div id="errormessage_toolbar" style="display:none;">
+<?php if($loginstatus >= $EXTRA_errormessage): ?><a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onClick="errormessage_remove()">清除所有记录</a><?php endif; ?>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onClick="errormessage_reload()">刷新</a>
+	</div>
+</div>
+
+<script>
+$('#errormessage_table').datagrid({
+	url:'/webforcits/home/log/errormessageJson',
+	method:'get',
+	striped:true,
+	singleSelect:true,
+	toolbar:'#errormessage_toolbar',
+	height:document.body.clientHeight - 128,
+	width:document.body.clientWidth - 228,
+	columns:[[
+		{field:'id',title:'编号',width:100},
+		{field:'message',title:'错误详情',width:1000},
+		{field:'logtime',title:'时间',width:150}
+	]],
+	pagination:true,
+	pageList:[10,20,30,50,70,100],
+	pageSize:20,
+	queryParams:{}
+});
+
+function errormessage_reload(){
+	$('#errormessage_table').datagrid('reload');
+}
+
+<?php if($loginstatus >= $EXTRA_errormessage): ?>function errormessage_remove(){
+	$.messager.confirm({title:'请确认',msg:'是否清空所有错误信息？',fn:function(callback){
+		if(callback){
+			$.post('/webforcits/log/errormessage',{action:'delall',identify:identify})
+			.success(function(callback){
+				if(callback == '1'){
+					errormessage_reload();
+				}else{
+					$.messager.show({title:'提示',msg:callback});
+				}
+			})
+			.error(function(){
+				$.messager.show({title:'提示',msg:'无法提交数据，请重试'});
+			});
+		}
+	}});
+}<?php endif; ?>
+</script>

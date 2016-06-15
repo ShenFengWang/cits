@@ -1,0 +1,32 @@
+	<div class="easyui-accordion" data-options="fit:true,border:false">
+<foreach name="mainmenu" item="menu">
+		<div title="{$key}" data-options="iconCls:'icon-ok'" style="padding:10px;">
+<foreach name="menu" item="list">
+<if condition="$list['switch']">
+			<div><a href="__APP__/{$list.url}" class="easyui-linkbutton" style="width:173px;margin-bottom:10px;">{$list.name}</a></div>
+</if>
+</foreach>
+		</div>
+</foreach>
+	</div>
+<script>
+//识别码
+var identify = '{$identify}';
+
+//菜单点击
+$('#west a').click(function(){
+	var center = $('#center');
+	if(center.tabs('exists',$(this).text())){
+		center.tabs('select',$(this).text());
+	}else{
+		center.tabs('add',{
+			title: $(this).text(),
+			href: $(this).attr('href'),
+			method:'get',
+			closable: true,
+			fit:true
+		});
+	}
+	return false;
+});
+</script>

@@ -1,0 +1,320 @@
+<div id="memberadmin_accordion" class="easyui-accordion">
+	<div title="正式成员">
+		<div class="easyui-layout" data-options="fit:true,border:false">
+<if condition="$loginstatus gt 2">
+			<div region="west" style="padding:10px;width:200px;">
+				<ul id="memberadmin_menu"></ul>
+			</div>
+</if>
+			<div region="center">
+				<div id="memberadmin_formal">
+					<div id="memberadmin_formal_toolbar" style="display:none;">
+<if condition="$loginstatus egt $EXTRA_memberadmin">
+						<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="memberadmin_remove();">删除</a>
+</if>
+						<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true" onclick="memberadmin_edit();">编辑</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="memberadmin_save();">保存</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true" onclick="memberadmin_cancel();">取消</a>
+						<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="memberadmin_reload();">刷新</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<if condition="$loginstatus egt $EXTRA_memberadmin">
+	<div title="未授权成员" {$unsign}>
+		<div id="memberadmin_unsign">
+			<div id="memberadmin_unsign_toolbar">
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="memberadmin_unsign_remove();">删除</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true" onclick="memberadmin_unsign_edit();">编辑</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="memberadmin_unsign_save();">保存</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-cancel',plain:true" onclick="memberadmin_unsign_cancel();">取消</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-reload',plain:true" onclick="memberadmin_unsign_reload();">刷新</a>
+			</div>
+		</div>
+	</div>
+<script>
+//初始化未授权列表
+$('#memberadmin_unsign').datagrid({
+	url:'__APP__/home/management/memberadminJson/unsign',
+	method:'get',
+	striped:true,
+	singleSelect:true,
+	fit:true,
+	border:false,
+	toolbar:'#memberadmin_unsign_toolbar',
+	columns:[[
+		{field:'username',title:'用户名',width:120},
+		{field:'realname',title:'真实姓名',width:120},
+		{field:'idcardnumber',title:'身份证号码',width:150},
+		{field:'mobile',title:'手机号码',width:120},
+		{field:'bankcard',title:'银行卡号码',width:200},
+		{field:'bankname',title:'开户行信息',width:200},
+		{field:'authority',title:'基础权限',width:120,editor:{
+			type:'combobox',options:{valueField:'id',textField:'name',method:'get',
+			url:'__APP__/home/management/memberadminJson/authority',required:true,missingMessage:'此项必选',editable:false
+		}}},
+		{field:'actor',title:'角色',width:120,editor:{
+			type:'combobox',options:{valueField:'id',textField:'name',method:'get',
+			url:'__APP__/home/management/memberadminJson/actor',required:true,missingMessage:'此项必选',editable:false,
+			onChange:function(value){
+				var ingroup = $('#memberadmin_unsign').datagrid('getEditor',{index:memberadmin_unsign_editIndex,field:'ingroup'}).target;
+				ingroup.combobox({
+					valueField:'id',textField:'name',url:'__APP__/home/management/memberadminJson/ingroup/' + value,
+					onLoadSuccess:function(){
+						$(this).combobox('setValue','');
+					}
+				});
+			}
+		}}},
+		{field:'ingroup',title:'所在区域/组',width:138,editor:{type:'combobox',options:{method:'get',required:true,missingMessage:'此项必选',editable:false}}}
+	]],
+	onClickRow: function(rowIndex, rowData){
+		if(memberadmin_unsign_editIndex != rowIndex){
+			if(memberadmin_unsign_endEdit()){
+				$('#memberadmin_unsign').datagrid('cancelEdit',memberadmin_unsign_editIndex);
+				memberadmin_unsign_editIndex = rowIndex;
+			}else{
+				$('#memberadmin_unsign').datagrid('selectRow', memberadmin_unsign_editIndex);
+			}
+		}
+	},
+	onAfterEdit: function(rowIndex, rowData, changes){
+		memberadmin_unsign_ajax($('#memberadmin_unsign').datagrid('getSelected').id,changes,'edit');
+		$.each(changes,function(k,v){alert(k+' : '+v);});
+	}
+});
+
+//初始化编辑ID
+var memberadmin_unsign_editIndex = undefined;
+
+//获取编辑状态
+function memberadmin_unsign_endEdit(){
+	if(memberadmin_unsign_editIndex == undefined){return true;}
+	if($('#memberadmin_unsign').datagrid('validateRow',memberadmin_unsign_editIndex)){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+//提交数据
+function memberadmin_unsign_ajax(id,data,action){
+	$.post('__APP__/home/management/memberadmin',{id:id,data:data,action:action,target:'unsign',identify:identify})
+	.success(function(callback){
+		if(callback != 1){
+			$.messager.show({title:'提示',msg:callback});
+		}
+		memberadmin_reload();
+	})
+	.error(function(){
+		$.messager.show({title:'提示',msg:'无法提交数据，请重试'});
+	});
+}
+
+//刷新
+function memberadmin_unsign_reload(){
+	$('#memberadmin_unsign').datagrid('reload');
+}
+
+//编辑
+function memberadmin_unsign_edit(){
+	if(memberadmin_unsign_endEdit() && $('#memberadmin_unsign').datagrid('getSelected')){
+		$('#memberadmin_unsign').datagrid('selectRow',memberadmin_unsign_editIndex);
+		$('#memberadmin_unsign').datagrid('beginEdit',memberadmin_unsign_editIndex);
+	}
+}
+
+//保存
+function memberadmin_unsign_save(){
+	if(memberadmin_unsign_editIndex != undefined){
+		if(memberadmin_unsign_endEdit()){
+			$('#memberadmin_unsign').datagrid('acceptChanges');
+			memberadmin_unsign_editIndex = undefined;
+		}
+	}
+}
+
+//取消
+function memberadmin_unsign_cancel(){
+	$('#memberadmin_unsign').datagrid('rejectChanges');
+	memberadmin_unsign_editIndex = undefined;
+}
+
+//删除
+function memberadmin_unsign_remove(){
+	var selectedItem = $('#memberadmin_unsign').datagrid('getSelected');
+	if(selectedItem){
+		$.messager.prompt({title:'请确认',msg:'如果需要删除该成员，请在下面的输入框中键入:delete',fn:function(val){
+			if(val == 'delete'){
+				memberadmin_unsign_ajax(selectedItem.id,'','remove');
+			}
+		}});
+	}
+}
+</script>
+</if>
+</div>
+
+<script>
+//初始化高度
+var memberadmin_accordion_height = document.body.clientHeight - 128;
+var memberadmin_accordion_width = document.body.clientWidth - 227;
+$('#memberadmin_accordion').accordion({height:memberadmin_accordion_height,width:memberadmin_accordion_width});
+
+//初始化编辑ID
+var memberadmin_editIndex = undefined;
+
+<if condition="$loginstatus gt 2">
+//组列表菜单
+$('#memberadmin_menu').tree({
+	url:'__APP__/home/management/memberadminJson/menu',
+	method:'get',
+	animate:true,
+	border:false,
+	onClick:function(node){
+		memberadmin_formal(node.id);
+	}
+});
+</if>
+
+<if condition="$loginstatus eq 2">
+//组列表内容
+memberadmin_formal();
+</if>
+
+//组列表内容生成
+function memberadmin_formal(id){
+	$('#memberadmin_formal').datagrid({
+		url:'__APP__/home/management/memberadminJson/formal/' + id,
+		method:'get',
+		striped:true,
+		singleSelect:true,
+		fit:true,
+		border:false,
+		toolbar:'#memberadmin_formal_toolbar',
+		columns:[[
+		{field:'username',title:'用户名',width:120},
+		{field:'realname',title:'真实姓名',width:120,editor:{type:'validatebox',options:{required:true,missingMessage:'此项必填',validType:'checkRealname'}}},
+		{field:'idcardnumber',title:'身份证号码',width:150,editor:{type:'validatebox',options:{required:true,missingMessage:'此项必填',validType:'checkIdcard'}}},
+		{field:'mobile',title:'手机号码',width:120,editor:{type:'validatebox',options:{required:true,missingMessage:'此项必填',validType:'checkMobile'}}},
+		{field:'bankcard',title:'银行卡号码',width:200,editor:{type:'validatebox',options:{required:true,missingMessage:'此项必填',validType:'checkBankcard'}}},
+		{field:'bankname',title:'开户行信息',width:200,editor:{type:'validatebox',options:{required:true,missingMessage:'此项必填',validType:'checkBankname'}}},
+		{field:'authority_name',title:'基础权限',width:120,editor:{
+			type:'combobox',options:{valueField:'id',textField:'name',method:'get',
+			url:'__APP__/home/management/memberadminJson/authority',required:true,missingMessage:'此项必选',editable:false,
+			onLoadSuccess:function(){
+				$(this).combobox('setValue',$('#memberadmin_formal').datagrid('getSelected').authority);
+			}
+		}}},
+		{field:'actor_name',title:'角色',width:120,editor:{
+			type:'combobox',options:{valueField:'id',textField:'name',method:'get',
+			url:'__APP__/home/management/memberadminJson/actor',required:true,missingMessage:'此项必选',editable:false,
+			onLoadSuccess:function(){
+				$(this).combobox('setValue',$('#memberadmin_formal').datagrid('getSelected').loginstatus);
+				var ingroup = $('#memberadmin_formal').datagrid('getEditor',{index:memberadmin_editIndex,field:'ingroup_name'}).target;
+				ingroup.combobox({
+					valueField:'id',textField:'name',url:'__APP__/home/management/memberadminJson/ingroup/' + $('#memberadmin_formal').datagrid('getSelected').loginstatus,
+					onLoadSuccess:function(){
+						$(this).combobox('setValue', $('#memberadmin_formal').datagrid('getSelected').ingroup);
+					}
+				});
+			},onChange:function(value){
+				var ingroup = $('#memberadmin_formal').datagrid('getEditor',{index:memberadmin_editIndex,field:'ingroup_name'}).target;
+				ingroup.combobox({
+					valueField:'id',textField:'name',url:'__APP__/home/management/memberadminJson/ingroup/' + value,
+					onLoadSuccess:function(){
+						$(this).combobox('setValue','');
+					}
+				});
+			}
+		}}},
+		{field:'ingroup_name',title:'所在区域/组',width:138,editor:{
+			type:'combobox',options:{
+				method:'get',required:true,missingMessage:'此项必选',editable:false
+		}}}
+		]],
+		onClickRow: function(rowIndex, rowData){
+			if(memberadmin_editIndex != rowIndex){
+				if(memberadmin_endEdit()){
+					$('#memberadmin_formal').datagrid('cancelEdit',memberadmin_editIndex);
+					memberadmin_editIndex = rowIndex;
+				}else{
+					$('#memberadmin_formal').datagrid('selectRow', memberadmin_editIndex);
+				}
+			}
+		},
+		onAfterEdit: function(rowIndex, rowData, changes){
+			memberadmin_ajax($('#memberadmin_formal').datagrid('getSelected').id,rowData,'edit');
+		}
+	});
+}
+
+//提交数据
+function memberadmin_ajax(id,data,action){
+	$.post('__APP__/home/management/memberadmin',{id:id,data:data,action:action,target:'formal',identify:identify})
+	.success(function(callback){
+		if(callback != 1){
+			$.messager.show({title:'提示',msg:callback});
+		}
+		memberadmin_reload();
+	})
+	.error(function(){
+		$.messager.show({title:'提示',msg:'无法提交数据，请重试'});
+	});
+}
+
+//获取编辑状态
+function memberadmin_endEdit(){
+	if(memberadmin_editIndex == undefined){return true;}
+	if($('#memberadmin_formal').datagrid('validateRow',memberadmin_editIndex)){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+//编辑
+function memberadmin_edit(){
+	if(memberadmin_endEdit() && $('#memberadmin_formal').datagrid('getSelected')){
+		$('#memberadmin_formal').datagrid('selectRow',memberadmin_editIndex);
+		$('#memberadmin_formal').datagrid('beginEdit',memberadmin_editIndex);
+	}
+}
+
+//保存
+function memberadmin_save(){
+	if(memberadmin_editIndex != undefined){
+		if(memberadmin_endEdit()){
+			$('#memberadmin_formal').datagrid('acceptChanges');
+			memberadmin_editIndex = undefined;
+		}
+	}
+}
+
+//取消
+function memberadmin_cancel(){
+	$('#memberadmin_formal').datagrid('rejectChanges');
+	memberadmin_editIndex = undefined;
+}
+
+//刷新
+function memberadmin_reload(){
+	$('#memberadmin_formal').datagrid('reload');
+	memberadmin_editIndex = undefined;
+}
+
+<if condition="$loginstatus egt $EXTRA_memberadmin">
+//删除
+function memberadmin_remove(){
+	var selectedItem = $('#memberadmin_formal').datagrid('getSelected');
+	if(selectedItem){
+		$.messager.prompt({title:'请确认',msg:'如果需要删除该成员，请在下面的输入框中键入:delete',fn:function(val){
+			if(val == 'delete'){
+				memberadmin_ajax(selectedItem.id,'','remove');
+			}
+		}});
+	}
+}
+</if>
+</script>

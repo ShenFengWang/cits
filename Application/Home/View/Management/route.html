@@ -1,0 +1,145 @@
+<div id="route_table">
+	<div id="route_toolbar" style="display:none;">
+<if condition="$loginstatus egt $EXTRA_route">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onClick="route_add()">增加</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-remove'" onClick="route_remove()">删除</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-edit'" onClick="route_edit()">编辑</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'" onClick="route_save()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-cancel'" onClick="route_cancel()">取消</a>
+</if>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'" onClick="route_reload()">刷新</a>
+	</div>
+</div>
+<script>
+$('#route_table').datagrid({
+	url:'__APP__/home/management/routeJson/travel',
+	method:'get',
+	striped:true,
+	singleSelect:true,
+	toolbar:'#route_toolbar',
+	height:document.body.clientHeight - 128,
+	width:document.body.clientWidth - 228,
+	columns:[[
+	  	{field:'name',title:'线路名称',width:300,rowspan:2,align:'center',editor:{type:'textbox',options:{required:true,missingMessage:'此项必填'}}},
+	  	{field:'price',title:'价格',width:120,rowspan:2,align:'center',editor:{type:'textbox',options:{required:true,missingMessage:'此项必填',validType:'checkNum'}}},
+	  	{title:'提成',rowspan:1,colspan:3},
+		{field:'workname',title:'启用',width:100,rowspan:2,align:'center',editor:{type:'combobox',options:{editable:false,required:true,missingMessage:'此项必选',
+		data:[{text:'是',value:'1'},{text:'否',value:'0'}]}}}
+	],[
+		{field:'agemin',title:'最小年龄',width:100,align:'center',editor:{type:'textbox',options:{required:true,missingMessage:'此项必填',validType:'checkNum'}}},
+		{field:'agemax',title:'最大年龄',width:100,align:'center',editor:{type:'textbox',options:{required:true,missingMessage:'此项必填',validType:'checkNum'}}},
+		{field:'provincename',title:'省份',width:300,align:'center',editor:{type:'combobox',options:{editable:false,required:true,missingMessage:'此项必选',multiple:true,
+		valueField:'id',textField:'name',url:'__APP__/home/management/routeJson/province',method:'get',onLoadSuccess:function(){
+			$(this).combobox('setValues',$('#route_table').datagrid('getSelected').province);
+		}}}},
+	]],
+	onClickRow: function(rowIndex, rowData){
+		if(route_editIndex != rowIndex){
+			if(route_endEdit()){
+				$('#route_table').datagrid('cancelEdit',route_editIndex);
+				route_editIndex = rowIndex;
+			}else{
+				$('#route_table').datagrid('selectRow', route_editIndex);
+			}
+		}
+	},
+	onAfterEdit: function(rowIndex, rowData, changes){
+		if(route_action == 'add'){
+			var id = 0;
+		}else{
+			var id = $('#route_table').datagrid('getSelected').id;
+		}
+		route_ajax(id,rowData,'edit');
+	}
+});
+
+//初始化编辑
+var route_editIndex = undefined;
+var route_action = undefined;
+
+function route_endEdit(){
+	if(route_editIndex == undefined){return true;}
+	if($('#route_table').datagrid('validateRow',route_editIndex)){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+<if condition="$loginstatus egt $EXTRA_route">
+//增加
+function route_add(){
+	if(route_endEdit()){
+		$('#route_table').datagrid('cancelEdit',route_editIndex);
+		$('#route_table').datagrid('appendRow',{});
+		route_editIndex = $('#route_table').datagrid('getRows').length - 1;
+		route_action = 'add';
+		$('#route_table').datagrid('selectRow', route_editIndex).datagrid('beginEdit', route_editIndex);
+	}
+}
+
+//删除
+function route_remove(){
+	if(route_endEdit()){
+		var selectedItem = $('#route_table').datagrid('getSelected');
+		if(selectedItem){
+			$.messager.confirm({title:'提示',msg:'是否删除该线路？',fn:function(callback){
+				if(callback){
+					route_ajax(selectedItem.id,selectedItem.name,'remove');
+				}
+			}});
+		}
+	}
+}
+
+//编辑
+function route_edit(){
+	if(route_endEdit() && $('#route_table').datagrid('getSelected')){
+		$('#route_table').datagrid('selectRow',route_editIndex);
+		$('#route_table').datagrid('beginEdit',route_editIndex);
+		route_action = 'edit';
+		var workname = $('#route_table').datagrid('getEditor',{index:route_editIndex,field:'workname'}).target;
+		workname.combobox('setValue',$('#route_table').datagrid('getSelected').work);
+	}
+}
+
+//保存
+function route_save(){
+	if(route_editIndex != undefined){
+		if(route_endEdit()){
+			$('#route_table').datagrid('acceptChanges');
+			route_editIndex = undefined;
+			route_action = undefined;
+		}
+	}
+}
+
+//取消
+function route_cancel(){
+	$('#route_table').datagrid('rejectChanges');
+	route_editIndex = undefined;
+	route_action = undefined;
+}
+
+//提交数据
+function route_ajax(id,data,action){
+	$.post('__APP__/home/management/route',{id:id,data:data,action:action,identify:identify})
+	.success(function(callback){
+		if(callback != '1'){
+			$.messager.show({title:'提示',msg:callback});
+		}
+		route_reload();
+	})
+	.error(function(){
+		$.messager.show({title:'提示',msg:'无法提交数据，请重试'});
+	});
+}
+</if>
+
+//刷新
+function route_reload(){
+	$('#route_table').datagrid('reload');
+	route_editIndex = undefined;
+	route_action = undefined;
+}
+</script>

@@ -1,0 +1,130 @@
+<div style="text-align:center;margin-top:15px;">
+	<div style="margin-bottom:15px;text-align:left;padding-left:5%;">
+		<div style="margin-bottom:5px;">状态：<span id="ticketadmin_addticket_status">停止</span></div>
+		<div>进度：<span id="ticketadmin_addticket_progress">N/A</span>　<span id="ticketadmin_addticket_note" style="color:red;"></span></div>
+	</div>
+	<div style="margin-bottom:15px;">
+		<div style="text-align:left;padding-left:5%;margin-bottom:5px;">发券人：</div>
+		<input id="ticketadmin_addticket_sender" class="easyui-textbox" type="text" style="width:90%">
+	</div>
+	<div style="margin-bottom:15px;">
+		<div style="text-align:left;padding-left:5%;margin-bottom:5px;">价值：</div>
+		<input id="ticketadmin_addticket_worth" class="easyui-textbox" type="text" style="width:90%">
+	</div>
+	<div style="margin-bottom:15px;">
+	<div style="text-align:left;padding-left:5%;margin-bottom:5px;">列表：(发券人,价值,起始ID,终止ID)</div>
+	<input id="ticketadmin_addticket_list" class="easyui-textbox" data-options="multiline:true" style="width:90%;height:500px;">
+	</div>
+	<div>
+		<a id="ticketadmin_addticket_submit" href="javascript:void(0)" class="easyui-linkbutton" onClick="ticketadmin_addticket_button()">提交列表</a>
+	</div>
+</div>
+<script>
+//初始化统计
+var ticketadmin_addticket_num = 0;
+var ticketadmin_addticket_count = undefined;
+
+//验证输入
+$('#ticketadmin_addticket_sender').textbox({validType:'checkRealname'});
+$('#ticketadmin_addticket_worth').textbox({validType:'checkNum'});
+
+//提交按钮
+function ticketadmin_addticket_button(){
+	var list = $('#ticketadmin_addticket_list').textbox('getValue');
+	if(list == '')return false;
+	$.messager.confirm({title:'提示',msg:'是否开始提交现金券数据？',fn:function(callback){
+		if(callback){
+			ticketadmin_addticket_submit();
+		}
+	}});
+}
+
+//初始化数据
+function ticketadmin_addticket_submit(){
+	if($('#ticketadmin_addticket_sender').textbox('isValid') && $('#ticketadmin_addticket_worth').textbox('isValid')){
+		if(ticketadmin_addticket_count == undefined){
+			var list = $('#ticketadmin_addticket_list').textbox('getValue').replace(/^[\n]+/,'').replace(/[\n]{2,}/g,"\n");
+			$('#ticketadmin_addticket_list').textbox('setValue',list);
+		}else{
+			var list = $('#ticketadmin_addticket_list').textbox('getValue');
+		}
+		if(list != ''){
+			if(ticketadmin_addticket_count == undefined){
+				$('#ticketadmin_addticket_sender').textbox('disable');
+				$('#ticketadmin_addticket_worth').textbox('disable');
+				$('#ticketadmin_addticket_list').textbox('disable');
+				$('#ticketadmin_addticket_submit').linkbutton({disabled:true,text:'正在提交'});
+			}
+			var first = list.split("\n",1);
+			var sender = $('#ticketadmin_addticket_sender').textbox('getValue');
+			var worth = $('#ticketadmin_addticket_worth').textbox('getValue');
+			if(ticketadmin_addticket_count == undefined){
+				ticketadmin_addticket_count = list.split("\n").length;
+			}
+			$('#ticketadmin_addticket_status').text('正在提交数据...');
+			$('#ticketadmin_addticket_progress').text('(' + ticketadmin_addticket_num + '/' + ticketadmin_addticket_count + ') Sending: ' + first[0]);
+			$('#ticketadmin_addticket_note').text('等待反馈...');
+			ticketadmin_addticket_ajax(sender,worth,first[0],'addticket');
+		}else{
+			if(ticketadmin_addticket_count != undefined){
+				$.messager.alert({title:'提示',msg:'增加已完成，共计提交：(' + ticketadmin_addticket_num + '/' + ticketadmin_addticket_count + ')',icon:'info'});
+				ticketadmin_reload();
+			}
+			ticketadmin_addticket_return();
+		}
+	}
+}
+
+//提交数据
+function ticketadmin_addticket_ajax(sender,worth,data,action){
+	$.ajax({
+		type:'POST',
+		url:'__APP__/home/management/ticketadmin',
+		data:{sender:sender,worth:worth,data:data,action:action,identify:identify},
+		async:false,
+		cache:false,
+		success:function(callback){
+			if(callback == '1'){
+				if(action == 'addticket'){
+					$('#ticketadmin_addticket_note').text('成功！');
+					var list = $('#ticketadmin_addticket_list').textbox('getValue');
+					var listFlash = list.replace(data,'').replace(/^[\n]+/,'').replace(/[\n]{2,}/g,"\n");
+					$('#ticketadmin_addticket_list').textbox('setValue',listFlash);
+					ticketadmin_addticket_num += 1;
+				}
+				setTimeout(function(){ticketadmin_addticket_submit();},1000);
+			}else if(callback == '2'){
+				$('#ticketadmin_addticket_note').text('等待确认...');
+				$.messager.confirm({title:'请确认',msg:'未查找到发券人，是否新建？',fn:function(callback){
+					if(callback){
+						ticketadmin_addticket_ajax(sender,worth,data,'addsender');
+					}else{
+						ticketadmin_addticket_return();
+					}
+				}});
+			}else{
+				ticketadmin_addticket_return(callback);
+			}
+		},
+		error:function(){
+			ticketadmin_addticket_return('无法提交数据，请重试');
+		}
+	});
+}
+
+//状态异常，返回，警告
+function ticketadmin_addticket_return(msg){
+	$('#ticketadmin_addticket_sender').textbox('enable');
+	$('#ticketadmin_addticket_worth').textbox('enable');
+	$('#ticketadmin_addticket_list').textbox('enable');
+	$('#ticketadmin_addticket_status').text('停止');
+	$('#ticketadmin_addticket_progress').text('N/A');
+	$('#ticketadmin_addticket_note').text('');
+	$('#ticketadmin_addticket_submit').linkbutton({disabled:false,text:'提交列表'});
+	if(msg){
+		$.messager.alert({title:'警告',msg:msg,icon:'error'});
+	}
+	ticketadmin_addticket_num = 0;
+	ticketadmin_addticket_count = undefined;
+}
+</script>

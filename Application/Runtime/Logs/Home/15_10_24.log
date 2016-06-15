@@ -1,0 +1,1223 @@
+[ 2015-10-24T17:13:20+08:00 ] 192.168.1.4 /webforcits/home/main/index?_=1445678011808
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_user` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`realname`,`ingroup`,`loginstatus`,`authority` FROM `cits_user` WHERE `username` = '1111111111' AND `password` = 'b1017ab1177d72528be39841a24e2f9f459b2b36' AND `loginstatus` > 0 AND `authority` > 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: show columns from `cits_authority` [ RunTime:0.0312s ]
+SQL: SHOW COLUMNS FROM `cits_target_url` [ RunTime:0.0312s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'operation'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'management'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'report'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'log'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'set'  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:13:21+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678011809
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:13:28+08:00 ] 192.168.1.4 /webforcits/home/set/extraset?_=1445678011810
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:13:28+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0312s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:18:37+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0468s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0312s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0468s ]
+
+[ 2015-10-24T17:18:37+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678011811
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:18:37+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0312s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:18:37+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0156s ]
+
+[ 2015-10-24T17:23:42+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678011812
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:23:44+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] explode() expects parameter 2 to be string, array given D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 49 行.
+
+[ 2015-10-24T17:23:45+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678011813
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:23:45+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:23:45+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:24:16+08:00 ] 192.168.1.4 /webforcits/home/main/index?_=1445678667740
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_user` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`realname`,`ingroup`,`loginstatus`,`authority` FROM `cits_user` WHERE `username` = '1111111111' AND `password` = 'b1017ab1177d72528be39841a24e2f9f459b2b36' AND `loginstatus` > 0 AND `authority` > 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: show columns from `cits_authority` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_target_url` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'operation'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'management'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'report'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'log'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'set'  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:24:17+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667741
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:24:19+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] explode() expects parameter 2 to be string, array given D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 49 行.
+
+[ 2015-10-24T17:24:20+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667742
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:24:20+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:24:20+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:25:05+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667743
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:25:07+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+NOTIC: [2] explode() expects parameter 2 to be string, array given D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 49 行.
+
+[ 2015-10-24T17:25:07+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667744
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:25:07+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0156s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:25:07+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:25:54+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667745
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2015-10-24T17:25:59+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '54' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:25:59+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667746
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:25:59+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:25:59+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:26:10+08:00 ] 192.168.1.4 /webforcits/home/management/ticketadmin?_=1445678667747
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:26:10+08:00 ] 192.168.1.4 /webforcits/home/management/ticketadminJson/menu
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT `id`,name as text FROM `cits_sender`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:26:12+08:00 ] 192.168.1.4 /webforcits/home/management/ticketadminJson/main/0?page=1&rows=20
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT COUNT(*) AS tp_count FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id ORDER BY `id` desc LIMIT 0,20   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:27:10+08:00 ] 192.168.1.4 /webforcits/home/management/groupadmin?_=1445678667748
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:27:11+08:00 ] 192.168.1.4 /webforcits/home/management/groupadminJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_group_list` [ RunTime:0.0312s ]
+SQL: SELECT * FROM `cits_group_list`  [ RunTime:0.0000s ]
+SQL: select `ingroup`, count(*) as `num` from `cits_user` where `loginstatus` > 0 and `loginstatus` < 4 group by `ingroup` [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:27:12+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667749
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:27:14+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '54' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:27:14+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667750
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:27:14+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:27:14+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:05+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667751
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:28:10+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '54' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:13+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:13+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667752
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:28:13+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:13+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:18+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667753
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:28:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '52' LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667754
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:28:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:28:38+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667755
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:29:01+08:00 ] 192.168.1.4 /webforcits/home/set/extraset?_=1445678667756
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:29:01+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:29:06+08:00 ] 192.168.1.4 /webforcits/home/set/extraset
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`field`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `id` = 8 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `field` = 'order_sender' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `cits_extraset` SET `value`='0' WHERE `field` = 'order_sender' [ RunTime:0.0468s ]
+SQL: SHOW COLUMNS FROM `cits_log_1111111111` [ RunTime:0.0468s ]
+SQL: INSERT INTO `cits_log_1111111111` (`logtime`,`target`,`action`) VALUES ('1445678946','操作名：制单-无人，值：1 => 0','修改特殊操作') [ RunTime:0.0312s ]
+
+[ 2015-10-24T17:29:06+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:29:08+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667757
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:29:20+08:00 ] 192.168.1.4 /webforcits/home/set/extraset
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`field`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `id` = 8 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `field` = 'order_sender' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `cits_extraset` SET `value`='1' WHERE `field` = 'order_sender' [ RunTime:0.0312s ]
+SQL: SHOW COLUMNS FROM `cits_log_1111111111` [ RunTime:0.0000s ]
+SQL: INSERT INTO `cits_log_1111111111` (`logtime`,`target`,`action`) VALUES ('1445678960','操作名：制单-无人，值：0 => 1','修改特殊操作') [ RunTime:0.0156s ]
+
+[ 2015-10-24T17:29:20+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:29:29+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667758
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:29:35+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '51' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:29:36+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667759
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:29:36+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:29:36+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:31:31+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667760
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:31:33+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '54' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:31:39+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015600s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '5' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:31:39+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667761
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:31:40+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:31:40+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:31:58+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/city/310000
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_city` [ RunTime:0.0156s ]
+SQL: SELECT `id`,`name` FROM `cits_city` WHERE `province` = 310000  [ RunTime:0.0156s ]
+
+[ 2015-10-24T17:32:11+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`price`,`agemin`,`agemax`,`province` FROM `cits_route` WHERE `name` = 'aaaaa' AND `work` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_city` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_city` WHERE `id` = 310100 AND `province` = 310000 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:32:11+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_third?_=1445678667762
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:32:11+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_thirdJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:32:22+08:00 ] 192.168.1.4 /webforcits/home/set/extraset
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`field`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `id` = 10 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `field` = 'order_overdraft' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `cits_extraset` SET `value`='0' WHERE `field` = 'order_overdraft' [ RunTime:0.0312s ]
+SQL: SHOW COLUMNS FROM `cits_log_1111111111` [ RunTime:0.0000s ]
+SQL: INSERT INTO `cits_log_1111111111` (`logtime`,`target`,`action`) VALUES ('1445679142','操作名：制单-透支，值：1 => 0','修改特殊操作') [ RunTime:0.0156s ]
+
+[ 2015-10-24T17:32:22+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:32:24+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667763
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:32:27+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:32:27+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667764
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:32:27+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:32:27+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:32:35+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/city/120000
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_city` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `cits_city` WHERE `province` = 120000  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:09+08:00 ] 192.168.1.4 /webforcits/home/set/extraset
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015600s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`field`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `id` = 9 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SELECT `name`,`vstart`,`vend`,`value` FROM `cits_extraset` WHERE `field` = 'order_none' LIMIT 1   [ RunTime:0.0000s ]
+SQL: UPDATE `cits_extraset` SET `value`='1' WHERE `field` = 'order_none' [ RunTime:0.0312s ]
+SQL: SHOW COLUMNS FROM `cits_log_1111111111` [ RunTime:0.0000s ]
+SQL: INSERT INTO `cits_log_1111111111` (`logtime`,`target`,`action`) VALUES ('1445679189','操作名：制单-无券，值：0 => 1','修改特殊操作') [ RunTime:0.0312s ]
+
+[ 2015-10-24T17:33:09+08:00 ] 192.168.1.4 /webforcits/home/set/extrasetJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_extraset` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name`,`tip`,`value` FROM `cits_extraset`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:11+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667765
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:12+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:12+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667766
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:12+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:12+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:17+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/city/150000
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_city` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`name` FROM `cits_city` WHERE `province` = 150000  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:19+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0156s ]
+SQL: SELECT `id`,`price`,`agemin`,`agemax`,`province` FROM `cits_route` WHERE `name` = '香港四晚五日飞机' AND `work` = 1 LIMIT 1   [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_city` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_city` WHERE `id` = 150200 AND `province` = 150000 LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:33:19+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_third?_=1445678667767
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:19+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_thirdJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:30+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 1 D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 174 行.
+NOTIC: [8] Undefined offset: 1 D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 175 行.
+NOTIC: [8] Undefined offset: 1 D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 176 行.
+NOTIC: [8] Undefined offset: 1 D:\wamp\www\webforcits\Application\Home\Controller\OperationController.class.php 第 177 行.
+SQL: SHOW COLUMNS FROM `cits_order` [ RunTime:0.0312s ]
+ERR: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'leadername' cannot be null
+
+[ 2015-10-24T17:33:39+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_thirdJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:44+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_thirdJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:33:47+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_thirdJson
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:36:40+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667768
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+
+[ 2015-10-24T17:38:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_ticket` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_sender` [ RunTime:0.0000s ]
+SQL: SELECT ticket.id AS id,ticket.sender AS sender,ticket.worth AS worth,ticket.remain AS remain,ticket.firsttime AS firsttime,ticket.lasttime AS lasttime,ticket.usedtimes AS usedtimes,ticket.usedpeople AS usedpeople,sender.name AS sendername FROM cits_ticket ticket LEFT JOIN cits_sender sender ON ticket.sender=sender.id WHERE ticket.id = '53' LIMIT 1   [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:38:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_second?_=1445678667769
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:38:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/routelist
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_route` [ RunTime:0.0000s ]
+SQL: SELECT `price`,`name` FROM `cits_route` WHERE `work` = 1  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:38:23+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder_secondJson/province
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_province` [ RunTime:0.0000s ]
+SQL: SELECT * FROM `cits_province`  [ RunTime:0.0000s ]
+
+[ 2015-10-24T17:38:36+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445678667770
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:51:47+08:00 ] 192.168.1.4 /webforcits/home/main/index?_=1445680318943
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_user` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`realname`,`ingroup`,`loginstatus`,`authority` FROM `cits_user` WHERE `username` = '1111111111' AND `password` = 'b1017ab1177d72528be39841a24e2f9f459b2b36' AND `loginstatus` > 0 AND `authority` > 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: show columns from `cits_authority` [ RunTime:0.0156s ]
+SQL: SHOW COLUMNS FROM `cits_target_url` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'operation'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'management'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'report'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'log'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'set'  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:51:48+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445680318944
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:52:10+08:00 ] 192.168.1.4 /webforcits/home/main/index?_=1445680342421
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `cits_user` [ RunTime:0.0000s ]
+SQL: SELECT `id`,`realname`,`ingroup`,`loginstatus`,`authority` FROM `cits_user` WHERE `username` = '1111111111' AND `password` = 'b1017ab1177d72528be39841a24e2f9f459b2b36' AND `loginstatus` > 0 AND `authority` > 0 LIMIT 1   [ RunTime:0.0000s ]
+SQL: show columns from `cits_authority` [ RunTime:0.0000s ]
+SQL: SHOW COLUMNS FROM `cits_target_url` [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'operation'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'management'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'report'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'log'  [ RunTime:0.0000s ]
+SQL: SELECT `name`,`url`,`authority_name` FROM `cits_target_url` WHERE `parent` = 'set'  [ RunTime:0.0000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2015-10-24T17:52:11+08:00 ] 192.168.1.4 /webforcits/home/operation/neworder?_=1445680342422
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000000s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000000s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.015600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.015600s ]
+

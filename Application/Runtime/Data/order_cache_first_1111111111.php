@@ -1,0 +1,1 @@
+a:7:{s:11:"ticket_post";s:2:"53";s:11:"sender_post";s:6:"张三";s:5:"worth";i:100;s:6:"remain";i:100;s:6:"ticket";a:1:{i:0;s:2:"53";}s:6:"sender";a:1:{i:0;s:0:"";}s:8:"identify";s:40:"1b6dbc476bda81c2b7275f07a045b048ffc6214e";}
